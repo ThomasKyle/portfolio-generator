@@ -15,12 +15,27 @@ const pageHTML = generatePage(name, github);
       {
         type: 'input',
         name: 'name',
-        message: 'What is your name?'
+        message: 'What is your name? (Required)',
+        validate: nameInput => {
+          if (nameInput) {
+            return true;
+          } else {
+            console.log('please enter your name! (Required)');
+            return false;
+          }
+        }
       },
       {
         type: 'input',
         name: 'github',
-        message: 'Enter your Github Username'
+        message: 'Enter your Github Username (Required)',
+        validate: githubInput => {
+          if (githubInput) {
+            return true;
+          } else {
+            console.log('Please enter your github username (Required)')
+          }
+        }
       },
       {
         type: 'input',
@@ -51,7 +66,15 @@ const promptProject = () => {
     {
       type: 'input',
       name: 'name',
-      message: 'What is the name of your project?'
+      message: 'What is the name of your project? (Required)',
+      validate: nameInput => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log('Please enter a project name. (Required)')
+          return false;
+        }
+      }
     },
     {
       type: 'input',
@@ -67,7 +90,14 @@ const promptProject = () => {
     {
       type: 'input',
       name: 'link',
-      message: 'Enter the Github link to your project.'
+      message: 'Enter the Github link to your project. (Required)',
+      validate: githubLink => {
+        if (githubLink) {
+          return true;
+        } else {
+          console.log('please enter a github link! (Required)')
+        }
+      }
     },
     {
       type: 'confirm',
